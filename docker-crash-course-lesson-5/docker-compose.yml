@@ -1,0 +1,12 @@
+version: '3.8'
+services: 
+  api:
+  # docker compose will look at the build path of EACH service then find the docker file to RUN the command inside which build the image for each service
+    build: ./api 
+    # the build will then create a container with given name and respected characteristics ports and volumes
+    container_name: api_c
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./api:/app
+      - /app/node_modules
